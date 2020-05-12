@@ -1,8 +1,6 @@
 import 'package:IoT_Agric_App/mqtt/mqtt_page.dart';
 import 'package:IoT_Agric_App/onboarding.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'util.dart';
 
 
 void main() {

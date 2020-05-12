@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 //List<Datareading> datareadingFromJson(String str) =>
 //    List<Datareading>.from(json.decode(str).map((x) => Datareading.fromJson(x)));
 //

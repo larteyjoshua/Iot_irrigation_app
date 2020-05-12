@@ -41,7 +41,7 @@ class SubscriberChart extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         " Soil Temperature",
-                        style: Theme.of(context).textTheme.body2,
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
                       Expanded(
                           child:
@@ -93,6 +93,7 @@ class _MyTempGraphPageState extends State< TempGraph> {
   final List<SubscriberSeries> temppoints= [];
   @override
   void initState(){
+    super.initState();
     Mqttwrapper().mqttController.stream.listen(listenToClient);
 //    myTypedFuture();
     fetchValues();

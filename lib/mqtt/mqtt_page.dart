@@ -76,7 +76,7 @@ class Mqttwrapper {
         MqttPublishPayload.bytesToStringAsString(recMess.payload.message);
         print(
             "EXAMPLE::Change notification:: topic is <${c[0]
-                .topic}>, payload is <-- ${pt} -->");
+                .topic}>, payload is <-- $pt -->");
         print("");
 
         final String topicSensor = "/larteyjoshua@gmail.com/SensorData";
