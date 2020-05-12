@@ -2,7 +2,6 @@ import 'package:IoT_Agric_App/drawer.dart';
 import 'package:IoT_Agric_App/mqtt/mqtt_page.dart';
 import 'package:flutter/material.dart';
 
-
 class PumpControl extends StatefulWidget {
   PumpControl({Key key, this.title}) : super(key: key);
 
@@ -53,40 +52,52 @@ class _MyHomePageState extends State<PumpControl> {
                 ),
                 _canShowButton
                     ? ButtonTheme(
-                  minWidth: 300,
-                  height: 70,
-                  child: RaisedButton(
-                    color: Colors.blue,
-                    child: Text('Automatic'),
-                    onPressed: () {publish('automatic');},
-                  ),
-                )
+                        minWidth: 300,
+                        height: 70,
+                        child: RaisedButton(
+                          color: Colors.blue,
+                          child: Text('Automatic'),
+                          onPressed: () {
+                            publish('automatic');
+                          },
+                        ),
+                      )
                     : SizedBox(),
                 SizedBox(
                   height: 50.0,
                 ),
                 _canShowButton
-                    ? RaisedButton(
-                  color: Colors.yellow,
-                  child: Text(_canShowButtonon ? 'Manual' : 'Manual'),
-                  onPressed: () { publish('manual');
-                    setState(() => _canShowButtonon = !_canShowButtonon);
-                  },
-                )
+                    ? ButtonTheme(
+                      minWidth: 300,
+                      height: 70,
+                        child: RaisedButton(
+                          color: Colors.yellow,
+                          child: Text(_canShowButtonon ? 'Manual' : 'Manual'),
+                          onPressed: () {
+                            publish('manual');
+                            setState(
+                                () => _canShowButtonon = !_canShowButtonon);
+                          },
+                        ),
+                      )
                     : SizedBox(),
                 _canShowButtonon
                     ? RaisedButton(
-                  color: Colors.green,
-                  child: Text('On'),
-                  onPressed: () {publish('on');},
-                )
+                        color: Colors.green,
+                        child: Text('On'),
+                        onPressed: () {
+                          publish('on');
+                        },
+                      )
                     : SizedBox(),
                 _canShowButtonon
                     ? RaisedButton(
-                  color: Colors.red,
-                  child: Text('Off'),
-                  onPressed: () {publish('off');},
-                )
+                        color: Colors.red,
+                        child: Text('Off'),
+                        onPressed: () {
+                          publish('off');
+                        },
+                      )
                     : SizedBox(),
               ]),
             ],
@@ -96,6 +107,7 @@ class _MyHomePageState extends State<PumpControl> {
           child: drawer,
         ));
   }
+
   void publish(String value) {
     Mqttwrapper().publish(value);
   }
