@@ -194,16 +194,16 @@ class _MyAboutPageState extends State<About> {
        //     createButton(Colors.red, 'red', 'About Project'),
 
             SizedBox(height: 5.0,),
-           createButton(Colors.indigoAccent, 'IndiAccent', '_aboutIoTDevLab();', 'About IoTDev Lab'),
+           createButton(Colors.indigoAccent, _aboutIoTDevLab, 'About IoTDev Lab'),
 
             SizedBox(height: 5.0,),
-            createButton(Colors.green, 'green','_aboutStudent();', 'About Student'),
+            createButton(Colors.green, _aboutStudent, 'About Student'),
 
             SizedBox(height: 5.0,),
-           createButton(Colors.blue, 'blue','_contactUs();','Contact Us'),
+           createButton(Colors.blue, _contactUs,'Contact Us'),
 
             SizedBox(height: 5.0,),
-            createButton(Colors.purple, 'purples','_showMyDialog();', 'Reset App Data', )
+            createButton(Colors.purple, _showMyDialog, 'Reset App Data', )
 
           ],
         ),
@@ -212,14 +212,11 @@ class _MyAboutPageState extends State<About> {
   }
 }
 
-RaisedButton createButton(Color color, String name, String perform, String text,  ) {
+RaisedButton createButton(Color color, Future<void> Function() perform, String text,  ) {
 
   return RaisedButton(
     color: color,
-    onPressed: () {
-      perform;
-      print('Print ' + name);
-    },
+    onPressed: () async => perform(),
     textColor: Colors.white,
     child: Center(
       child: Text(text),
