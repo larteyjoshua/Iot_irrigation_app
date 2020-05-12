@@ -40,7 +40,7 @@ class SubscriberChart extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         " Soil PH",
-                        style: Theme.of(context).textTheme.body2,
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
                       Expanded(
                           child:
@@ -91,6 +91,7 @@ class _MyPhGraphPageState extends State<PhGraph> {
 
   @override
   void initState(){
+    super.initState();
     Mqttwrapper().mqttController.stream.listen(listenToClient);
     fetchValues();
     //DatabaseHelper().deleteAll();

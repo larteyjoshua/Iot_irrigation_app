@@ -24,6 +24,7 @@ class _MyHomePageState extends State<DashBoard> {
 
   @override
   void initState(){
+    super.initState();
     Mqttwrapper().mqttController.stream.listen(listenToClient);
   }
 

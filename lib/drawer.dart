@@ -22,7 +22,7 @@ final drawerItems = Builder(builder: (context) {
     children: <Widget>[
       drawerHeader,
       ListTile(
-        title: Text('dashboard'),
+        title: Text('Dashboard'),
         onTap: () {
           Navigator.pushReplacement(
             context,
