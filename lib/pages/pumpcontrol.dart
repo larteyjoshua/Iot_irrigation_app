@@ -68,8 +68,8 @@ class _MyHomePageState extends State<PumpControl> {
                 ),
                 _canShowButton
                     ? ButtonTheme(
-                      minWidth: 300,
-                      height: 70,
+                        minWidth: 300,
+                        height: 70,
                         child: RaisedButton(
                           color: Colors.yellow,
                           child: Text(_canShowButtonon ? 'Manual' : 'Manual'),
@@ -81,22 +81,40 @@ class _MyHomePageState extends State<PumpControl> {
                         ),
                       )
                     : SizedBox(),
+                SizedBox(height: 20),
                 _canShowButtonon
-                    ? RaisedButton(
-                        color: Colors.green,
-                        child: Text('On'),
-                        onPressed: () {
-                          publish('on');
-                        },
-                      )
-                    : SizedBox(),
-                _canShowButtonon
-                    ? RaisedButton(
-                        color: Colors.red,
-                        child: Text('Off'),
-                        onPressed: () {
-                          publish('off');
-                        },
+                    ? SizedBox(
+                        width: 300,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Expanded(
+                              child: ButtonTheme(
+                                height: 70,
+                                child: RaisedButton(
+                                  color: Colors.green,
+                                  child: Text('On'),
+                                  onPressed: () {
+                                    publish('on');
+                                  },
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 8),
+                            Expanded(
+                              child: ButtonTheme(
+                                height: 70,
+                                child: RaisedButton(
+                                  color: Colors.red,
+                                  child: Text('Off'),
+                                  onPressed: () {
+                                    publish('off');
+                                  },
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       )
                     : SizedBox(),
               ]),
