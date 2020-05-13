@@ -2,7 +2,6 @@ import 'package:IoT_Agric_App/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'util.dart';
 
-
 class Onboarding extends StatefulWidget {
   Onboarding({Key key}) : super(key: key);
 

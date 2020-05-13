@@ -4,10 +4,8 @@ import 'package:IoT_Agric_App/utils/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-
 class MoistGraph extends StatefulWidget {
   MoistGraph({Key key, this.title}) : super(key: key);
-
   final String title;
 
   @override
@@ -25,13 +23,10 @@ class SubscriberSeries {
 
 class SubscriberChart extends StatelessWidget {
   final List<SubscriberSeries> data;
-
   SubscriberChart({@required this.data});
-
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
         height: 500,
         padding: EdgeInsets.all(20),
@@ -71,7 +66,6 @@ class SubscriberChart extends StatelessWidget {
                                     borderColor: Colors.green,
                                     xValueMapper: (SubscriberSeries sales, _) => sales.time,
                                     yValueMapper: (SubscriberSeries sales, _) => sales.moisture
-
                                 )
                               ]
                           )
@@ -113,7 +107,6 @@ class _MyMoistGraphPageState extends State<MoistGraph> {
   Future myTypedFuture() async {
     await Future.delayed(Duration(seconds: 4));
     fetchValues();
-
   }
 
   void listenToClient(final data) {

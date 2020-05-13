@@ -2,11 +2,9 @@ import 'package:IoT_Agric_App/mqtt/mqtt_page.dart';
 import 'package:IoT_Agric_App/onboarding.dart';
 import 'package:flutter/material.dart';
 
-
 void main() {
    Mqttwrapper().initializemqtt();
   runApp(App());}
-
 
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);

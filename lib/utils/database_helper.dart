@@ -4,10 +4,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
-
-
 class DatabaseHelper{
-
 
   static DatabaseHelper _databaseHelper;
   static Database _database;
@@ -58,8 +55,6 @@ class DatabaseHelper{
     return tempgraph;
   }
 
-
-
   Future<dynamic> getReadingwaterusedList() async {
     Database db = await this.database;
     List<Map<dynamic, dynamic>> watergraph = await db.rawQuery('select $coltime, $colwater_used FROM $readingstable ORDER BY $colId DESC limit 5' );
@@ -71,35 +66,26 @@ class DatabaseHelper{
     streamController.add(getReadingwaterusedList());
   }
 
-
   Future<dynamic> getReadingPhList() async {
     Database db = await this.database;
     List<Map<dynamic, dynamic>> phgraph = await db.rawQuery('select  $coltime, $colph FROM $readingstable ORDER BY $colId DESC limit 5' );
     return phgraph;
   }
 
-
-
   Future<dynamic> getReadingMoistureList() async {
     Database db = await this.database;
     List<Map<dynamic, dynamic>> moistgraph = await db.rawQuery('select $coltime, $colmoisture FROM $readingstable ORDER BY $colId DESC limit 5' );
     return moistgraph;
-
   }
-
-
 
   InsertDatareading(Datareading datareading) async{
     Database db = await this.database;
     var dataread = await db.insert(readingstable, datareading.toJson());
     print('Data inserted');
     return dataread;
-
   }
   deleteAll() async {
     Database db = await this.database;
     db.delete(readingstable).then((i)=>print('Database deleted'));
   }
-
-
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:IoT_Agric_App/pages//dashboard.dart';
 
-
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
   @override

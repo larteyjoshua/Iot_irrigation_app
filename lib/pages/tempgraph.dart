@@ -4,7 +4,6 @@ import 'package:IoT_Agric_App/utils/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-
 class  TempGraph extends StatefulWidget {
   TempGraph({Key key, this.title}) : super(key: key);
   final String title;
@@ -23,13 +22,10 @@ class SubscriberSeries {
 
 class SubscriberChart extends StatelessWidget {
   final List<SubscriberSeries> data;
-
   SubscriberChart({@required this.data});
-
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
         height: 500,
         padding: EdgeInsets.all(20),
@@ -84,7 +80,6 @@ class SubscriberChart extends StatelessWidget {
   }
 }
 
-
 class _MyTempGraphPageState extends State< TempGraph> {
   DatabaseHelper databaseHelper = DatabaseHelper();
   final Color primaryColor = Color(0xff99cc33);
@@ -112,13 +107,10 @@ class _MyTempGraphPageState extends State< TempGraph> {
     });
   }
 
-
   Future myTypedFuture() async {
     await Future.delayed(Duration(seconds: 4));
     fetchValues();
   }
-
-
 
   void listenToClient(final data) {
     if (this.mounted) {
@@ -136,7 +128,6 @@ class _MyTempGraphPageState extends State< TempGraph> {
       });
     }
   }
-
 
   @override
   Widget build(BuildContext context) {

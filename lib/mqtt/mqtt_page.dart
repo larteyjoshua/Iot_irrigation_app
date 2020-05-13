@@ -12,6 +12,7 @@ import 'package:IoT_Agric_App/utils/database_helper.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import'dart:convert';
 
+//creating mqtt class
 class Mqttwrapper {
 
   StreamController<Map<String, dynamic>> mqttController = StreamController
@@ -54,19 +55,14 @@ class Mqttwrapper {
       return client;
     }
 
-
     /// Check we are connected
     if (client.connectionStatus.state == MqttConnectionState.connected) {
       print("EXAMPLE::MQTT client connected");
-
-
-
       /// Ok, lets try a subscription
       final String topic = "/larteyjoshua@gmail.com/test"; // Not a wildcard topic
       client.subscribe(topic, MqttQos.atMostOnce);
       final String topictwo = "/larteyjoshua@gmail.com/SensorData"; // Not a wildcard topic
       client.subscribe(topictwo, MqttQos.atMostOnce);
-
 
       /// The client has a change notifier object(see the Observable class) which we then listen to to get
       /// notifications of published updates to each subscribed topic.
@@ -78,7 +74,6 @@ class Mqttwrapper {
             "EXAMPLE::Change notification:: topic is <${c[0]
                 .topic}>, payload is <-- $pt -->");
         print("");
-
         final String topicSensor = "/larteyjoshua@gmail.com/SensorData";
         if (("${c[0].topic}") == (topicSensor)) {
           final datasensor = json.decode(pt);
@@ -93,13 +88,9 @@ class Mqttwrapper {
               .connectionStatus.state}");
       client.disconnect();
       exit(-1);
-
     }
     return client;
-
-
   }
-
 
   Future<bool> _connectToClient() async {
     if (client != null &&
@@ -122,38 +113,7 @@ class Mqttwrapper {
         client.subscribe(pubTopic, MqttQos.atMostOnce);
       }
     }
-
-
   }
-
-
-//  void manual (){
-//    print("EXAMPLE::Publishing our Automatic");
-//    final String pubTopic = "/larteyjoshua@gmail.com/test";
-//    final MqttClientPayloadBuilder builder = new MqttClientPayloadBuilder();
-//    builder.addString("manual");
-//    client.publishMessage(pubTopic, MqttQos.atMostOnce, builder.payload);
-//    client.subscribe(pubTopic, MqttQos.atMostOnce);
-//  }
-//
-//  Future<String> on () async{
-//    print("EXAMPLE::Publishing our Automatic");
-//    final String pubTopic = "/larteyjoshua@gmail.com/test";
-//    final MqttClientPayloadBuilder builder = new MqttClientPayloadBuilder();
-//    builder.addString("on");
-//    client.publishMessage(pubTopic, MqttQos.atMostOnce, builder.payload);
-//    client.subscribe(pubTopic, MqttQos.atMostOnce);
-//  }
-//  Future<String> off () async{
-//    print("EXAMPLE::Publishing our Automatic");
-//    final String pubTopic = "/larteyjoshua@gmail.com/test";
-//    final MqttClientPayloadBuilder builder = new MqttClientPayloadBuilder();
-//    builder.addString("off");
-//    client.publishMessage(pubTopic, MqttQos.atMostOnce, builder.payload);
-//    client.subscribe(pubTopic, MqttQos.atMostOnce);
-//  }
-
-
 
   /// The subscribed callback
   void onSubscribed(String topic) {

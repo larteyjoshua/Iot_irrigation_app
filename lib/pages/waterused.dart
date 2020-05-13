@@ -24,13 +24,10 @@ class SubscriberSeries {
 
 class SubscriberChart extends StatelessWidget {
   final List<SubscriberSeries> data;
-
   SubscriberChart({@required this.data});
-
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
         height: 500,
         padding: EdgeInsets.all(20),
@@ -195,4 +192,3 @@ class _MyWaterGraphPageState extends State<WaterGraph> {
     super.dispose();
   }
 }
-

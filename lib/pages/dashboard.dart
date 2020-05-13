@@ -3,8 +3,6 @@ import 'package:IoT_Agric_App/mqtt/mqtt_page.dart';
 import 'package:IoT_Agric_App/utils/database_helper.dart';
 import 'package:flutter/material.dart';
 
-
-
 class DashBoard extends StatefulWidget {
   DashBoard({Key key, this.title}) : super(key: key);
   final String title;
@@ -28,7 +26,6 @@ class _MyHomePageState extends State<DashBoard> {
     Mqttwrapper().mqttController.stream.listen(listenToClient);
   }
 
-
 //  @override
 //  void dispose() {
 //
@@ -38,9 +35,7 @@ class _MyHomePageState extends State<DashBoard> {
     if (this.mounted) {
       setState(() {
         print("I am coming from the iot device $data");
-//      final dataraw = json.encode(data);
 //     databaseHelper.InsertDatareading(Datareading.fromJson(data));
-
 
         double m = double.parse(data["moisture"].toString());
         double t = double.parse(data["temperature"].toString());
@@ -60,7 +55,6 @@ class _MyHomePageState extends State<DashBoard> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -85,7 +79,6 @@ class _MyHomePageState extends State<DashBoard> {
       drawer: drawer,
     );
   }
-
 
   _createListTile(String title, String value, String initials) {
     return Padding(
@@ -125,4 +118,3 @@ class _MyHomePageState extends State<DashBoard> {
     super.dispose();
   }
 }
-

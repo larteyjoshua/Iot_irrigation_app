@@ -8,7 +8,6 @@ import 'package:IoT_Agric_App/pages/waterused.dart';
 import 'package:flutter/material.dart';
 
 final drawer = Drawer(child: drawerItems);
-
 final drawerHeader = UserAccountsDrawerHeader(
   accountName: Text('Admin'),
   accountEmail: Text('larteyjoshua@gmail.com'),

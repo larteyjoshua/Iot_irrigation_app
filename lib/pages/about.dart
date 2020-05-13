@@ -27,7 +27,7 @@ class _MyAboutPageState extends State<About> {
     Future<void> _showMyDialog() async {
       return showDialog<void>(
         context: context,
-        barrierDismissible: false, // user must tap button!
+        barrierDismissible: true, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('Reset App Data?'),
@@ -63,7 +63,7 @@ class _MyAboutPageState extends State<About> {
     Future<void> _aboutProjet() async {
       return showDialog<void>(
         context: context,
-        barrierDismissible: false, // user must tap button!
+        barrierDismissible: true, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('Project Detail'),
@@ -88,11 +88,10 @@ class _MyAboutPageState extends State<About> {
       );
     }
 
-
     Future<void> _aboutStudent() async {
       return showDialog<void>(
         context: context,
-        barrierDismissible: false, // user must tap button!
+        barrierDismissible: true, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('Student Details'),
@@ -111,7 +110,6 @@ class _MyAboutPageState extends State<About> {
                   Navigator.of(context).pop();
                 },
               ),
-
             ],
           );
         },
@@ -121,14 +119,14 @@ class _MyAboutPageState extends State<About> {
     Future<void> _contactUs() async {
       return showDialog<void>(
         context: context,
-        barrierDismissible: false, // user must tap button!
+        barrierDismissible: true, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('Contact Us'),
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
-                  Text('We are located on the Campus of UCC Science Block on the send floor'),
+                  Text('We are located on the Campus of UCC Science Block on the second floor'),
                   Text(' Call Us on 0249643365'),
                 ],
               ),
@@ -149,7 +147,7 @@ class _MyAboutPageState extends State<About> {
     Future<void> _aboutIoTDevLab() async {
       return showDialog<void>(
         context: context,
-        barrierDismissible: false, // user must tap button!
+        barrierDismissible: true, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text('About IoT Dev Lab'),
@@ -175,9 +173,6 @@ class _MyAboutPageState extends State<About> {
     }
 
 
-
-
-
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -191,7 +186,7 @@ class _MyAboutPageState extends State<About> {
           children: <Widget>[
             logo,
             SizedBox(height: 2.0,),
-       //     createButton(Colors.red, 'red', 'About Project'),
+           createButton(Colors.red, _aboutProjet, 'About Project'),
 
             SizedBox(height: 5.0,),
            createButton(Colors.indigoAccent, _aboutIoTDevLab, 'About IoTDev Lab'),
@@ -213,7 +208,6 @@ class _MyAboutPageState extends State<About> {
 }
 
 RaisedButton createButton(Color color, Future<void> Function() perform, String text,  ) {
-
   return RaisedButton(
     color: color,
     onPressed: () async => perform(),
