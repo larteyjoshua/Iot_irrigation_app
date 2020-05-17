@@ -108,7 +108,7 @@ class _MyTempGraphPageState extends State< TempGraph> {
   }
 
   Future myTypedFuture() async {
-    await Future.delayed(Duration(seconds: 4));
+    await Future.delayed(Duration(seconds: 3));
     fetchValues();
   }
 

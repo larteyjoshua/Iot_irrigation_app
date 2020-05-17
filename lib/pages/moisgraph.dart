@@ -37,7 +37,7 @@ class SubscriberChart extends StatelessWidget {
                 child:Column(
                     children: <Widget>[
                       Text(
-                        " Soil PH",
+                        " Soil Moisture",
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                       Expanded(
@@ -105,7 +105,7 @@ class _MyMoistGraphPageState extends State<MoistGraph> {
     });
   }
   Future myTypedFuture() async {
-    await Future.delayed(Duration(seconds: 4));
+    await Future.delayed(Duration(seconds: 3));
     fetchValues();
   }
 

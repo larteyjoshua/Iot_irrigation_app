@@ -40,7 +40,7 @@ class _MyHomePageState extends State<DashBoard> {
         double m = double.parse(data["moisture"].toString());
         double t = double.parse(data["temperature"].toString());
         double p = double.parse(data["ph"].toString());
-        double w = double.parse(data["water_used"].toString());
+        double w = double.parse(data["waterused"].toString());
 
         _isLoading = true;
         _moist = m;

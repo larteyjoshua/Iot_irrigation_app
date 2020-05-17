@@ -154,7 +154,7 @@ class _MyAboutPageState extends State<About> {
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
-                  Text('This is a well establish and well puepose lab under the Department of Computer science and Information technology for learning and development of embedded system and IoT Solutions'),
+                  Text('This is a well establish and well purpose lab under the Department of Computer science and Information technology for learning and development of embedded system and IoT Solutions'),
                   Text(' Vist IoTDev Lab for more detail'),
                 ],
               ),

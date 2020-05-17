@@ -15,11 +15,11 @@ class WaterGraph extends StatefulWidget {
 
 class SubscriberSeries {
   final String time;
-  final double water_used;
+  final double waterused;
 
   SubscriberSeries(
       {@required this.time,
-        @required this.water_used,});
+        @required this.waterused,});
 }
 
 class SubscriberChart extends StatelessWidget {
@@ -66,7 +66,7 @@ class SubscriberChart extends StatelessWidget {
 //                                    borderMode: AreaBorderMode.excludeBottom,
 //                                    borderColor: Colors.green,
                                   xValueMapper: (SubscriberSeries sales, _) => sales.time,
-                                  yValueMapper: (SubscriberSeries sales, _) => sales.water_used,
+                                  yValueMapper: (SubscriberSeries sales, _) => sales.waterused,
                                 )
                               ]
                           )
@@ -98,17 +98,17 @@ class _MyWaterGraphPageState extends State<WaterGraph> {
       for (Map map in data) {
         waterpoints.add(SubscriberSeries(
           time: map['time'],
-          water_used: double.tryParse('${map['water_used']}'),
+          waterused: double.tryParse('${map['waterused']}'),
         ));
         print('Second: ${map['time']}\tWater: ${double.tryParse(
-            '${map['water_used']}')}');
+            '${map['waterused']}')}');
       }
       setState(() {});
     });
   }
 
   Future myTypedFuture() async {
-    await Future.delayed(Duration(seconds: 4));
+    await Future.delayed(Duration(seconds: 3));
     fetchValues();
   }
 
@@ -117,7 +117,7 @@ class _MyWaterGraphPageState extends State<WaterGraph> {
       setState(() {
         print("I am coming from the iot device $data");
 //      databaseHelper.InsertDatareading(Datareading.fromJson(data));
-        double w = double.parse(data["water_used"].toString());
+        double w = double.parse(data["waterused"].toString());
 
         _isLoading = true;
         _waterused = w;

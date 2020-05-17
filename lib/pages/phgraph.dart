@@ -109,7 +109,7 @@ class _MyPhGraphPageState extends State<PhGraph> {
   }
 
   Future myTypedFuture() async {
-    await Future.delayed(Duration(seconds: 4));
+    await Future.delayed(Duration(seconds: 3));
     fetchValues();
   }
   void listenToClient(final data) {

@@ -13,7 +13,7 @@ class DatabaseHelper{
   String colId= 'id';
   String coltime = 'time';
   String coltemperature = 'temperature';
-  String colwater_used = 'water_used';
+  String colwaterused = 'waterused';
   String colph = 'ph';
   String colmoisture = 'moisture';
 
@@ -44,7 +44,7 @@ class DatabaseHelper{
         'CREATE TABLE IF NOT EXISTS $readingstable($colId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, '
             '$coltime TIMESdTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,'
             '$coltemperature  REAL,'
-            '$colwater_used REAL,'
+            '$colwaterused REAL,'
             '$colph REAL,'
             '$colmoisture REAL)');
   }
@@ -57,7 +57,7 @@ class DatabaseHelper{
 
   Future<dynamic> getReadingwaterusedList() async {
     Database db = await this.database;
-    List<Map<dynamic, dynamic>> watergraph = await db.rawQuery('select $coltime, $colwater_used FROM $readingstable ORDER BY $colId DESC limit 5' );
+    List<Map<dynamic, dynamic>> watergraph = await db.rawQuery('select $coltime, $colwaterused FROM $readingstable ORDER BY $colId DESC limit 5' );
     return watergraph;
   }
 
